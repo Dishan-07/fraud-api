@@ -131,8 +131,9 @@ class KANPredictor:
         self._load_model()
 
     def _load_model(self):
-        model_path  = os.getenv("MODEL_PATH",  "../AD_LAB_ML_PROJECT/kan_model.pth")
-        scaler_path = os.getenv("SCALER_PATH", "../AD_LAB_ML_PROJECT/scaler.pkl")
+        BASE_DIR = os.path.dirname(__file__)
+        model_path  = os.path.join(BASE_DIR, "kan_model.pth")
+        scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
 
         try:
             with open(scaler_path, "rb") as f:
